@@ -1,0 +1,17 @@
+services:
+  monitored-nginx:
+    image: nginx:stable
+    container_name: monitored-nginx
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      # nginx:stable (Debian-based) ships curl but not wget - the
+      # original wget-based check silently failed with "executable
+      # not found" and reported false UNHEALTHY on an otherwise
+      # perfectly healthy container. Verified against the real image.
+      test: ["CMD", "curl", "-f", "-s", "http://localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
