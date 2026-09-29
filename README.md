@@ -9,24 +9,7 @@
 
 ---
 
-## Live Demo
 
-| | URL |
-|---|---|
-| **Dashboard** | https://self-healing-e-commerce-microservices-aax3tmiok-anshika494shiv.vercel.app |
-| **API Docs** | https://self-healing-backend-m1e1.onrender.com/docs |
-
-> First load may take 30–50 seconds — the free backend tier sleeps after inactivity and needs to wake up.
-
-<details>
-<summary>Known limitations of the free deployment</summary>
-
-- Render's free tier spins down after 15 minutes of inactivity (first request takes 30–50s to wake it)
-- Background tasks (the Monitor Agent) restart on wake-up, so recent history may be sparse right after a cold start
-- The live deployment demonstrates the API and dashboard UI end-to-end; for the smoothest view of the full autonomous healing loop, run it locally
-</details>
-
----
 
 ## What is this?
 
@@ -116,7 +99,6 @@ The **Orchestrator** sequences these agents end-to-end and owns the retry loop (
 | AI / LLM | Groq API — open-weight models (`openai/gpt-oss-120b` default, validated against `gpt-oss-20b` and `qwen3.8-27b`) | Free, no credit card, not locked to one model |
 | Event bus | Custom async pub/sub | No external broker needed, fully understood, research-novel |
 | Database | SQLite + SQLModel | Zero-setup, file-based |
-| Deployment | Render (backend) + Vercel (frontend) | Both free tiers |
 
 > No paid services anywhere. Groq replaces the paid Anthropic API; a hand-built event bus replaces enterprise tools like Solace Agent Mesh.
 
